@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.devsong</groupId>
+    <artifactId>basic-arch-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>${project.version}</version>
+    <url>https://github.com/devsong/maven-bom</url>
+    <description>common maven dependency file for custom project</description>
+    <name>${project.artifactId}</name>
+
+    <properties>
+        <java.version>11</java.version>
+        <skip_maven_deploy>false</skip_maven_deploy>
+        <skip_maven_test>false</skip_maven_test>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <spring-boot.verison>2.4.7</spring-boot.verison>
+        <spring-cloud.version>2020.0.4</spring-cloud.version>
+        <zookeeper.version>3.7.0</zookeeper.version>
+        <curator.version>4.2.0</curator.version>
+        <netty.version>4.1.68.Final</netty.version>
+        <jedis.version>2.9.0</jedis.version>
+        <common-lang3.version>3.12.0</common-lang3.version>
+        <common-codec.version>1.15</common-codec.version>
+        <commons-io.version>2.7</commons-io.version>
+        <httpclient.version>4.5.13</httpclient.version>
+        <velocity.version>1.7</velocity.version>
+        <kaptcha.version>2.3.3</kaptcha.version>
+        <ehcache.version>3.10.2</ehcache.version>
+        <zxing.version>3.5.0</zxing.version>
+        <cglib-nodep.version>3.2.12</cglib-nodep.version>
+        <mysql.version>8.0.32</mysql.version>
+        <jackson.version>2.14.2</jackson.version>
+        <nacos-spring-cloud-stater.version>2021.1</nacos-spring-cloud-stater.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+        <guava.version>23.0</guava.version>
+        <shardingsphere.version>4.1.1</shardingsphere.version>
+        <groovy.version>2.4.5</groovy.version>
+        <knife4j.version>2.0.8</knife4j.version>
+        <mybatis.version>3.5.6</mybatis.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <hikaricp.version>5.0.1</hikaricp.version>
+        <dbcp.version>2.9.0</dbcp.version>
+        <dom4j.version>2.1.3</dom4j.version>
+        <bcprov.version>1.68</bcprov.version>
+        <lombok.version>1.18.24</lombok.version>
+        <mockito.version>4.5.1</mockito.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <redisson.version>3.17.7</redisson.version>
+        <assertj-core.version>3.23.1</assertj-core.version>
+        <alibaba-spring-context.version>1.0.11</alibaba-spring-context.version>
+        <nacos-client.version>2.1.1</nacos-client.version>
+        <logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
+        <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
+        <micrometer.version>1.10.4</micrometer.version>
+        <micrometer-extras.version>0.2.2</micrometer-extras.version>
+        <flyway.version>9.16.0</flyway.version>
+        <mariaDB4j.version>2.6.0</mariaDB4j.version>
+        <mariadb-java-client.version>3.1.2</mariadb-java-client.version>
+        <embedded-redis.version>0.7.3</embedded-redis.version>
+        <archunit-junit5.version>0.23.0</archunit-junit5.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.verison}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${common-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.zookeeper</groupId>
+                        <artifactId>zookeeper</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.zookeeper</groupId>
+                        <artifactId>zookeeper</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.netty</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>${hikaricp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-dbcp2</artifactId>
+                <version>${dbcp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pro.fessional</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${ehcache.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib-nodep</artifactId>
+                <version>${cglib-nodep.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${nacos-spring-cloud-stater.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${nacos-spring-cloud-stater.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>${shardingsphere.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15on</artifactId>
+                <version>${bcprov.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy</artifactId>
+                <version>${groovy.version}</version>
+                <classifier>indy</classifier>
+            </dependency>
+
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj-core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.spring</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${alibaba-spring-context.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${nacos-client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash-logback-encoder.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-registry-prometheus</artifactId>
+                <version>${micrometer.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.mweirauch</groupId>
+                <artifactId>micrometer-jvm-extras</artifactId>
+                <version>${micrometer-extras.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.vorburger.mariaDB4j</groupId>
+                <artifactId>mariaDB4j</artifactId>
+                <version>${mariaDB4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mariadb.jdbc</groupId>
+                <artifactId>mariadb-java-client</artifactId>
+                <version>${mariadb-java-client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>it.ozimov</groupId>
+                <artifactId>embedded-redis</artifactId>
+                <version>${embedded-redis.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-simple</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-core</artifactId>
+                <version>${flyway.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-mysql</artifactId>
+                <version>${flyway.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.tngtech.archunit</groupId>
+                <artifactId>archunit-junit5</artifactId>
+                <version>${archunit-junit5.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/central/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+
+        <repository>
+            <id>Spring Repository</id>
+            <url>https://repo.spring.io/plugins-release/</url>
+        </repository>
+    </repositories>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version2.0</name>
+            <url>https://www.apache.org/licenses/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/devsong/basic-arch-parent</url>
+        <connection>scm:git:https://github.com/devsong/basic-arch-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:devsong/basic-arch-parent.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>guanzhisong</name>
+            <email>guanzhisong@gmail.com</email>
+            <url>https://devsong.github.io</url>
+        </developer>
+    </developers>
+
+    <profiles>
+        <profile>
+            <id>oss</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+                <repository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+
+            <properties>
+                <project.version>1.0.3</project.version>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>aliyun</id>
+            <distributionManagement>
+                <repository>
+                    <id>rdc-releases</id>
+                    <url>https://packages.aliyun.com/maven/repository/2082403-release-RrOTMm/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>rdc-snapshots</id>
+                    <url>https://packages.aliyun.com/maven/repository/2082403-snapshot-cI3zbl/</url>
+                </snapshotRepository>
+            </distributionManagement>
+            <properties>
+                <project.version>1.0.0-SNAPSHOT</project.version>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>center</name>
+            <url>https://maven.aliyun.com/repository/central</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.0.0-M7</version>
+                    <!--                    <version>2.22.2</version>-->
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.12.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.4.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>3.4.2</version>
+                    <!--                    <version>3.1.1</version>-->
+                    <!--                    <version>3.0.0</version>-->
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <version>3.19.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.8.8</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>3.0.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.7</version>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>com.oracle.**</groupId>
+                            <artifactId>*</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimiter>@</delimiter>
+                    </delimiters>
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>${skip_maven_test}</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>${skip_maven_deploy}</skip>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <keyname>${gpg.keyname}</keyname>
+                            <passphraseServerId>${gpg.keyname}</passphraseServerId>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

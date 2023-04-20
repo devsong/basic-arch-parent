@@ -21,8 +21,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <linkXRef>false</linkXRef>
 
-        <spring-boot.verison>2.4.7</spring-boot.verison>
-        <spring-cloud.version>2020.0.4</spring-cloud.version>
+        <spring-boot.verison>2.6.14</spring-boot.verison>
+        <spring-cloud.version>2021.0.6</spring-cloud.version>
         <zookeeper.version>3.7.0</zookeeper.version>
         <curator.version>4.2.0</curator.version>
         <netty.version>4.1.68.Final</netty.version>
@@ -40,7 +40,7 @@
         <jackson.version>2.14.2</jackson.version>
         <nacos-spring-cloud-stater.version>2021.1</nacos-spring-cloud-stater.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
-        <guava.version>23.0</guava.version>
+        <guava.version>31.1-jre</guava.version>
         <shardingsphere.version>4.1.1</shardingsphere.version>
         <groovy.version>2.4.5</groovy.version>
         <knife4j.version>2.0.8</knife4j.version>
@@ -662,7 +662,7 @@
                 <configuration>
                     <includeTests>true</includeTests>
                     <rulesets>build-resources/pmd-rulesets.xml</rulesets>
-                    <failOnViolation>false</failOnViolation>
+                    <failOnViolation>true</failOnViolation>
                     <printFailingErrors>true</printFailingErrors>
                     <format>net.sourceforge.pmd.renderers.SummaryHTMLRenderer</format>
                 </configuration>
@@ -769,7 +769,6 @@
                     </execution>
                 </executions>
             </plugin>
-
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

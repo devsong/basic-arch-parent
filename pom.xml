@@ -826,11 +826,13 @@
                         </includes>
                         <palantirJavaFormat>
                         </palantirJavaFormat>
-                        <removeUnusedImports/>
+                        <removeUnusedImports>
+                        </removeUnusedImports>
                     </java>
                     <yaml>
                         <includes>
                             <include>src/**/*.yaml</include>
+                            <include>src/**/*.yml</include>
                         </includes>
                         <jackson />
                     </yaml>

@@ -67,7 +67,7 @@
         <mariadb-java-client.version>3.1.2</mariadb-java-client.version>
         <embedded-redis.version>0.7.3</embedded-redis.version>
         <archunit-junit5.version>0.23.0</archunit-junit5.version>
-        <build-tools.version>1.0.0</build-tools.version>
+        <build-tools.version>1.0.0-SNAPSHOT</build-tools.version>
     </properties>
 
     <repositories>

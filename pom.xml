@@ -464,9 +464,20 @@
                     <url>https://packages.aliyun.com/maven/repository/2082403-snapshot-cI3zbl/</url>
                 </snapshotRepository>
             </distributionManagement>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+        </profile>
+
+        <profile>
+            <id>delu-aliyun</id>
+            <distributionManagement>
+                <repository>
+                    <id>delurdc-releases</id>
+                    <url>https://packages.aliyun.com/maven/repository/2271213-release-Foez6u/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>delurdc-snapshots</id>
+                    <url>https://packages.aliyun.com/maven/repository/2271213-snapshot-goqdo7/</url>
+                </snapshotRepository>
+            </distributionManagement>
         </profile>
     </profiles>
 

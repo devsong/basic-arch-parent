@@ -7,12 +7,12 @@
     <artifactId>basic-arch-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
-    <url>https://github.com/devsong/maven-bom</url>
+    <url>https://github.com/devsong/basic-arch-parent</url>
     <description>common maven dependency file for custom project</description>
     <name>${project.artifactId}</name>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <skip_maven_deploy>false</skip_maven_deploy>
         <skip_maven_test>true</skip_maven_test>
         <skip_maven_site>true</skip_maven_site>
@@ -23,8 +23,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <linkXRef>false</linkXRef>
 
-        <spring-boot.verison>2.6.14</spring-boot.verison>
-        <spring-cloud.version>2021.0.6</spring-cloud.version>
+        <spring-boot.verison>2.4.13</spring-boot.verison>
+        <spring-cloud.version>2020.0.6</spring-cloud.version>
         <zookeeper.version>3.7.0</zookeeper.version>
         <curator.version>4.2.0</curator.version>
         <netty.version>4.1.68.Final</netty.version>

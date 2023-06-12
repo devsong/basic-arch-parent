@@ -47,7 +47,7 @@
         <knife4j.version>2.0.8</knife4j.version>
         <mybatis.version>3.5.6</mybatis.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
-        <hikaricp.version>5.0.1</hikaricp.version>
+<!--        <hikaricp.version>5.0.1</hikaricp.version>-->
         <dbcp.version>2.9.0</dbcp.version>
         <dom4j.version>2.1.3</dom4j.version>
         <bcprov.version>1.68</bcprov.version>
@@ -158,11 +158,11 @@
                 <version>${httpclient.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.zaxxer</groupId>
-                <artifactId>HikariCP</artifactId>
-                <version>${hikaricp.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.zaxxer</groupId>-->
+<!--                <artifactId>HikariCP</artifactId>-->
+<!--                <version>${hikaricp.version}</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -805,13 +805,13 @@
                         <removeUnusedImports>
                         </removeUnusedImports>
                     </java>
-                    <yaml>
-                        <includes>
-                            <include>src/**/*.yaml</include>
-                            <include>src/**/*.yml</include>
-                        </includes>
-                        <jackson />
-                    </yaml>
+<!--                    <yaml>-->
+<!--                        <includes>-->
+<!--                            <include>src/**/*.yaml</include>-->
+<!--                            <include>src/**/*.yml</include>-->
+<!--                        </includes>-->
+<!--                        <jackson />-->
+<!--                    </yaml>-->
                 </configuration>
                 <executions>
                     <execution>

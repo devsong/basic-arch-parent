@@ -63,7 +63,7 @@
         <micrometer.version>1.10.4</micrometer.version>
         <micrometer-extras.version>0.2.2</micrometer-extras.version>
         <flyway.version>9.16.0</flyway.version>
-        <mariaDB4j.version>2.5.3</mariaDB4j.version>
+        <mariaDB4j.version>2.6.0</mariaDB4j.version>
         <mariadb-java-client.version>3.1.2</mariadb-java-client.version>
         <embedded-redis.version>0.7.3</embedded-redis.version>
         <archunit-junit5.version>0.23.0</archunit-junit5.version>

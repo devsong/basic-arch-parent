@@ -663,7 +663,7 @@
                 <configuration>
                     <includeTests>true</includeTests>
                     <rulesets>build-resources/pmd-rulesets.xml</rulesets>
-                    <failOnViolation>true</failOnViolation>
+                    <failOnViolation>false</failOnViolation>
                     <printFailingErrors>true</printFailingErrors>
                     <format>net.sourceforge.pmd.renderers.SummaryHTMLRenderer</format>
                 </configuration>

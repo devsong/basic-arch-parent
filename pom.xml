@@ -17,6 +17,7 @@
         <skip_maven_test>true</skip_maven_test>
         <skip_maven_site>true</skip_maven_site>
         <skip_maven_install>false</skip_maven_install>
+        <skip_maven_pmd>false</skip_maven_pmd>
         <!-- 忽略maven site时候依赖import报告 -->
         <mpir.dm.skip>true</mpir.dm.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -661,6 +662,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <configuration>
+                    <skip>${skip_maven_pmd}</skip>
                     <includeTests>true</includeTests>
                     <rulesets>build-resources/pmd-rulesets.xml</rulesets>
                     <failOnViolation>false</failOnViolation>
@@ -685,6 +687,9 @@
                         <goals>
                             <goal>pmd</goal>
                         </goals>
+                        <configuration>
+                            <skip></skip>
+                        </configuration>
                     </execution>
                 </executions>
                 <dependencies>

@@ -415,29 +415,29 @@
             </distributionManagement>
         </profile>
 
+<!--        <profile>-->
+<!--            <id>aliyun</id>-->
+<!--            <distributionManagement>-->
+<!--                <repository>-->
+<!--                    <id>rdc-releases</id>-->
+<!--                    <url>https://packages.aliyun.com/maven/repository/2082403-release-RrOTMm/</url>-->
+<!--                </repository>-->
+<!--                <snapshotRepository>-->
+<!--                    <id>rdc-snapshots</id>-->
+<!--                    <url>https://packages.aliyun.com/maven/repository/2082403-snapshot-cI3zbl/</url>-->
+<!--                </snapshotRepository>-->
+<!--            </distributionManagement>-->
+<!--        </profile>-->
+
         <profile>
             <id>aliyun</id>
             <distributionManagement>
                 <repository>
                     <id>rdc-releases</id>
-                    <url>https://packages.aliyun.com/maven/repository/2082403-release-RrOTMm/</url>
-                </repository>
-                <snapshotRepository>
-                    <id>rdc-snapshots</id>
-                    <url>https://packages.aliyun.com/maven/repository/2082403-snapshot-cI3zbl/</url>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-
-        <profile>
-            <id>delu-aliyun</id>
-            <distributionManagement>
-                <repository>
-                    <id>delurdc-releases</id>
                     <url>https://packages.aliyun.com/maven/repository/2271213-release-Foez6u/</url>
                 </repository>
                 <snapshotRepository>
-                    <id>delurdc-snapshots</id>
+                    <id>rdc-snapshots</id>
                     <url>https://packages.aliyun.com/maven/repository/2271213-snapshot-goqdo7/</url>
                 </snapshotRepository>
             </distributionManagement>
@@ -447,8 +447,8 @@
     <pluginRepositories>
 
         <pluginRepository>
-            <id>delurdc-releases</id>
-            <name>delurdc-releases</name>
+            <id>rdc-releases</id>
+            <name>rdc-releases</name>
             <url>https://packages.aliyun.com/maven/repository/2271213-release-Foez6u/</url>
             <releases>
                 <enabled>true</enabled>
@@ -458,8 +458,8 @@
             </snapshots>
         </pluginRepository>
         <pluginRepository>
-            <id>delurdc-snapshots</id>
-            <name>delurdc-snapshots</name>
+            <id>rdc-snapshots</id>
+            <name>rdc-snapshots</name>
             <url>https://packages.aliyun.com/maven/repository/2271213-snapshot-goqdo7/</url>
             <releases>
                 <enabled>true</enabled>
@@ -479,28 +479,29 @@
                 <enabled>false</enabled>
             </snapshots>
         </pluginRepository>
-        <pluginRepository>
-            <id>rdc-releases</id>
-            <name>rdc-releases</name>
-            <url>https://packages.aliyun.com/maven/repository/2082403-release-RrOTMm</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>rdc-snapshots</id>
-            <name>rdc-snapshots</name>
-            <url>https://packages.aliyun.com/maven/repository/2082403-snapshot-cI3zbl/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
+        <!-- 个人云效私服-->
+<!--        <pluginRepository>-->
+<!--            <id>rdc-releases</id>-->
+<!--            <name>rdc-releases</name>-->
+<!--            <url>https://packages.aliyun.com/maven/repository/2082403-release-RrOTMm</url>-->
+<!--            <releases>-->
+<!--                <enabled>true</enabled>-->
+<!--            </releases>-->
+<!--            <snapshots>-->
+<!--                <enabled>false</enabled>-->
+<!--            </snapshots>-->
+<!--        </pluginRepository>-->
+<!--        <pluginRepository>-->
+<!--            <id>rdc-snapshots</id>-->
+<!--            <name>rdc-snapshots</name>-->
+<!--            <url>https://packages.aliyun.com/maven/repository/2082403-snapshot-cI3zbl/</url>-->
+<!--            <releases>-->
+<!--                <enabled>true</enabled>-->
+<!--            </releases>-->
+<!--            <snapshots>-->
+<!--                <enabled>true</enabled>-->
+<!--            </snapshots>-->
+<!--        </pluginRepository>-->
     </pluginRepositories>
 
     <build>

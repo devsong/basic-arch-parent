@@ -445,6 +445,29 @@
     </profiles>
 
     <pluginRepositories>
+
+        <pluginRepository>
+            <id>delurdc-releases</id>
+            <name>delurdc-releases</name>
+            <url>https://packages.aliyun.com/maven/repository/2271213-release-Foez6u/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>delurdc-snapshots</id>
+            <name>delurdc-snapshots</name>
+            <url>https://packages.aliyun.com/maven/repository/2271213-snapshot-goqdo7/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
         <pluginRepository>
             <id>public</id>
             <name>center</name>
@@ -465,6 +488,17 @@
             </releases>
             <snapshots>
                 <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>rdc-snapshots</id>
+            <name>rdc-snapshots</name>
+            <url>https://packages.aliyun.com/maven/repository/2082403-snapshot-cI3zbl/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
@@ -688,7 +722,7 @@
                             <goal>pmd</goal>
                         </goals>
                         <configuration>
-                            <skip></skip>
+                            <skip>${skip_maven_pmd}</skip>
                         </configuration>
                     </execution>
                 </executions>

@@ -620,8 +620,6 @@
                             <version>${mapstruct.version}</version>
                         </path>
                     </annotationProcessorPaths>
-                    <generatedSourcesDirectory>${project.build.directory}/generated-sources</generatedSourcesDirectory>
-                    <generatedTestSourcesDirectory>${project.build.directory}/generated-test-sources</generatedTestSourcesDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -779,7 +777,8 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${project.build.directory}/generated-sources/</source>
+                                <source>${project.build.directory}/generated-sources/java/</source>
+                                <source>${project.build.directory}/generated-sources/annotations/</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -792,7 +791,7 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>src/test-integration/java</source>
+                                <source>src/test-integration/java/</source>
                                 <source>${project.build.directory}/generated-test-sources/</source>
                             </sources>
                         </configuration>
@@ -807,7 +806,7 @@
                         <configuration>
                             <resources>
                                 <resource>
-                                    <directory>src/test-integration/resources</directory>
+                                    <directory>src/test-integration/resources/</directory>
                                 </resource>
                             </resources>
                         </configuration>

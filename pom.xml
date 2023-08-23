@@ -49,7 +49,7 @@
         <knife4j.version>2.0.8</knife4j.version>
         <mybatis.version>3.5.6</mybatis.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
-<!--        <hikaricp.version>5.0.1</hikaricp.version>-->
+        <!--        <hikaricp.version>5.0.1</hikaricp.version>-->
         <dbcp.version>2.9.0</dbcp.version>
         <dom4j.version>2.1.3</dom4j.version>
         <bcprov.version>1.68</bcprov.version>
@@ -160,11 +160,11 @@
                 <version>${httpclient.version}</version>
             </dependency>
 
-<!--            <dependency>-->
-<!--                <groupId>com.zaxxer</groupId>-->
-<!--                <artifactId>HikariCP</artifactId>-->
-<!--                <version>${hikaricp.version}</version>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>com.zaxxer</groupId>-->
+            <!--                <artifactId>HikariCP</artifactId>-->
+            <!--                <version>${hikaricp.version}</version>-->
+            <!--            </dependency>-->
 
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -416,19 +416,19 @@
             </distributionManagement>
         </profile>
 
-<!--        <profile>-->
-<!--            <id>aliyun</id>-->
-<!--            <distributionManagement>-->
-<!--                <repository>-->
-<!--                    <id>rdc-releases</id>-->
-<!--                    <url>https://packages.aliyun.com/maven/repository/2082403-release-RrOTMm/</url>-->
-<!--                </repository>-->
-<!--                <snapshotRepository>-->
-<!--                    <id>rdc-snapshots</id>-->
-<!--                    <url>https://packages.aliyun.com/maven/repository/2082403-snapshot-cI3zbl/</url>-->
-<!--                </snapshotRepository>-->
-<!--            </distributionManagement>-->
-<!--        </profile>-->
+        <!--        <profile>-->
+        <!--            <id>aliyun</id>-->
+        <!--            <distributionManagement>-->
+        <!--                <repository>-->
+        <!--                    <id>rdc-releases</id>-->
+        <!--                    <url>https://packages.aliyun.com/maven/repository/2082403-release-RrOTMm/</url>-->
+        <!--                </repository>-->
+        <!--                <snapshotRepository>-->
+        <!--                    <id>rdc-snapshots</id>-->
+        <!--                    <url>https://packages.aliyun.com/maven/repository/2082403-snapshot-cI3zbl/</url>-->
+        <!--                </snapshotRepository>-->
+        <!--            </distributionManagement>-->
+        <!--        </profile>-->
 
         <profile>
             <id>aliyun</id>
@@ -481,28 +481,28 @@
             </snapshots>
         </pluginRepository>
         <!-- 个人云效私服-->
-<!--        <pluginRepository>-->
-<!--            <id>rdc-releases</id>-->
-<!--            <name>rdc-releases</name>-->
-<!--            <url>https://packages.aliyun.com/maven/repository/2082403-release-RrOTMm</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>false</enabled>-->
-<!--            </snapshots>-->
-<!--        </pluginRepository>-->
-<!--        <pluginRepository>-->
-<!--            <id>rdc-snapshots</id>-->
-<!--            <name>rdc-snapshots</name>-->
-<!--            <url>https://packages.aliyun.com/maven/repository/2082403-snapshot-cI3zbl/</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--        </pluginRepository>-->
+        <!--        <pluginRepository>-->
+        <!--            <id>rdc-releases</id>-->
+        <!--            <name>rdc-releases</name>-->
+        <!--            <url>https://packages.aliyun.com/maven/repository/2082403-release-RrOTMm</url>-->
+        <!--            <releases>-->
+        <!--                <enabled>true</enabled>-->
+        <!--            </releases>-->
+        <!--            <snapshots>-->
+        <!--                <enabled>false</enabled>-->
+        <!--            </snapshots>-->
+        <!--        </pluginRepository>-->
+        <!--        <pluginRepository>-->
+        <!--            <id>rdc-snapshots</id>-->
+        <!--            <name>rdc-snapshots</name>-->
+        <!--            <url>https://packages.aliyun.com/maven/repository/2082403-snapshot-cI3zbl/</url>-->
+        <!--            <releases>-->
+        <!--                <enabled>true</enabled>-->
+        <!--            </releases>-->
+        <!--            <snapshots>-->
+        <!--                <enabled>true</enabled>-->
+        <!--            </snapshots>-->
+        <!--        </pluginRepository>-->
     </pluginRepositories>
 
     <build>
@@ -620,6 +620,8 @@
                             <version>${mapstruct.version}</version>
                         </path>
                     </annotationProcessorPaths>
+                    <generatedSourcesDirectory>${project.build.directory}/generated-sources</generatedSourcesDirectory>
+                    <generatedTestSourcesDirectory>${project.build.directory}/generated-test-sources</generatedTestSourcesDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -770,6 +772,19 @@
                 <artifactId>build-helper-maven-plugin</artifactId>
                 <executions>
                     <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+
+                    <execution>
                         <id>add-test-source</id>
                         <phase>generate-test-sources</phase>
                         <goals>
@@ -778,6 +793,7 @@
                         <configuration>
                             <sources>
                                 <source>src/test-integration/java</source>
+                                <source>${project.build.directory}/generated-test-sources/</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -837,7 +853,7 @@
                 <groupId>com.diffplug.spotless</groupId>
                 <artifactId>spotless-maven-plugin</artifactId>
                 <configuration>
-<!--                    <applySkip>true</applySkip>-->
+                    <!--                    <applySkip>true</applySkip>-->
                     <checkSkip>true</checkSkip>
                     <java>
                         <includes>
@@ -848,13 +864,13 @@
                         <removeUnusedImports>
                         </removeUnusedImports>
                     </java>
-<!--                    <yaml>-->
-<!--                        <includes>-->
-<!--                            <include>src/**/*.yaml</include>-->
-<!--                            <include>src/**/*.yml</include>-->
-<!--                        </includes>-->
-<!--                        <jackson />-->
-<!--                    </yaml>-->
+                    <!--                    <yaml>-->
+                    <!--                        <includes>-->
+                    <!--                            <include>src/**/*.yaml</include>-->
+                    <!--                            <include>src/**/*.yml</include>-->
+                    <!--                        </includes>-->
+                    <!--                        <jackson />-->
+                    <!--                    </yaml>-->
                 </configuration>
                 <executions>
                     <execution>
